@@ -2,6 +2,7 @@ import { createTheme, MenuItem, TextField, ThemeProvider } from "@material-ui/co
 import React from 'react'
 import './Header.css'
 import categories from "../../data/category"
+import dos_logo from '../../images/department-of-state.svg'
 
 
 
@@ -22,7 +23,11 @@ const Header = ({ setCategory, category, word, setWord, LightMode }) => {
 
     return (
         <div className="header">
-            <span className="title">{word ? word : "DoS/CST: myGlossary"}</span>
+            <span className="title1">{word ? "" : "U.S. Department of State"}</span>
+            <span className="title2">{word ? "" : "Bureau of Consular Affairs"}</span>
+            <span className="title3">{word ? "" : "myGlossary"}</span>
+            <span className="title3">{word ? word : ""}</span>
+            {/* <img src={dos_logo} width='400vw' height='400vw' /> */}
             <div className="inputs">
                 <ThemeProvider theme={darkTheme}>
                     <TextField 
@@ -31,17 +36,6 @@ const Header = ({ setCategory, category, word, setWord, LightMode }) => {
                             value={word}
                             onChange={(e)=>setWord(e.target.value)}
                     />
-                    <TextField className="select"
-                        id="standard-select-currency"
-                        select
-                        label="Language"
-                        value={category}
-                        onChange={(e) => HandleChange(e.target.value)}
-                    >
-                        {categories.map((option) => (
-                            <MenuItem key={option.label} value={option.label}> {option.value} </MenuItem>
-                        ))}
-                    </TextField>
                 </ThemeProvider>
             </div>
         </div>
